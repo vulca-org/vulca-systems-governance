@@ -1,7 +1,11 @@
 from pathlib import Path
 
+import pytest
+
 from vulca_governance.commands import CommandResult
+from vulca_governance.errors import GovernanceError
 from vulca_governance.private_snapshot import (
+    _github_metadata,
     build_private_snapshot,
     classify_status,
     parse_worktree_porcelain,
@@ -83,3 +87,10 @@ def test_private_denylist_contains_identity_remote_and_root(tmp_path: Path) -> N
     assert "example/private-repository" in denied
     assert "private-repository" in denied
     assert str(tmp_path) in denied
+
+
+def test_github_refresh_rejects_option_like_identity_before_execution() -> None:
+    runner = FakeRunner()
+    with pytest.raises(GovernanceError, match="owner/repository"):
+        _github_metadata("-option/repository", runner)
+    assert runner.calls == []

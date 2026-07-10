@@ -363,7 +363,10 @@ def _validate_snapshot(snapshot: dict[str, object]) -> None:
 
 
 def _github_metadata(full_name: str, runner: CommandRunner) -> dict[str, object]:
-    if not re.fullmatch(r"[^/\s]+/[^/\s]+", full_name):
+    if not re.fullmatch(
+        r"[A-Za-z0-9_.][A-Za-z0-9_.-]*/[A-Za-z0-9_.][A-Za-z0-9_.-]*",
+        full_name,
+    ):
         raise GovernanceError("GitHub identity must be owner/repository")
     result = runner.run(
         ["gh", "repo", "view", full_name, "--json", "visibility,isArchived,defaultBranchRef"],
