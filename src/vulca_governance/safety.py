@@ -21,7 +21,6 @@ PRIVATE_FIELDS: frozenset[str] = frozenset(
         "prunable",
         "recommended_action",
         "sensitivity",
-        "release_boundary",
     }
 )
 
