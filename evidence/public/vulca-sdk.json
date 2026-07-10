@@ -1,0 +1,23 @@
+{
+  "collector": {
+    "name": "vulca-sdk",
+    "schema_version": 1
+  },
+  "derived": {
+    "mcp_tool_count": 23,
+    "version": "0.23.1"
+  },
+  "input_paths": [
+    "pyproject.toml",
+    "src/vulca/mcp_server.py"
+  ],
+  "input_sha256": {
+    "pyproject.toml": "ec83acaf60e0512d51949bd65a723898f264c98f483dc1e02b1eccef56a9b5ab",
+    "src/vulca/mcp_server.py": "6da1d157d8e0ad2bdd85de1461fc99316b0ebff3340c64616d7cc415aa360a23"
+  },
+  "payload_sha256": "03b6a00e30838542b450ad80d488d6c1587b035a357e93d41a6fcc50ca170f62",
+  "repository_id": "vulca-sdk",
+  "schema_version": 1,
+  "source_commit": "d61139ef1d088e68d0fa23798f37ca04c00399bf",
+  "source_identity": "vulca-org/vulca"
+}
