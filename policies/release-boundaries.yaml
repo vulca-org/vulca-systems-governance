@@ -1,0 +1,8 @@
+schema_version: 1
+required_fields:
+  - version_source
+  - release_channels
+  - maintainer_role
+  - visibility
+  - non_guarantees
+archived_release_channels: []

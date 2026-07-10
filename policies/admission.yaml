@@ -1,0 +1,10 @@
+schema_version: 1
+required_checks:
+  - one-organization-lane
+  - conforming-descriptive-name
+  - audience-and-result
+  - maintainer-authority-and-release-boundary
+  - no-duplicate-canonical-responsibility
+  - confirmed-visibility
+  - public-private-and-credential-preflight
+dispositions: [adopt, consolidate, archive, blocked, excluded]

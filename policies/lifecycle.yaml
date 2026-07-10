@@ -1,0 +1,8 @@
+schema_version: 1
+states: [incubating, active, maintained, deprecated, archived]
+transitions:
+  incubating: [active]
+  active: [maintained, deprecated]
+  maintained: [active, deprecated]
+  deprecated: [archived]
+  archived: []
