@@ -173,7 +173,7 @@ def check_registry(
     """Validate the registry and reject a stale deterministic Markdown view."""
     data = load_registry(source)
     validate_registry(data, policies)
-    expected = render_registry(data, _load_evidence(evidence_root))
+    expected = render_registry(data, load_evidence_directory(evidence_root))
     try:
         actual = output.read_text(encoding="utf-8")
     except OSError as exc:
@@ -182,7 +182,8 @@ def check_registry(
         raise GovernanceError("registry Markdown drift detected")
 
 
-def _load_evidence(root: Path) -> dict[str, object]:
+def load_evidence_directory(root: Path) -> dict[str, object]:
+    """Load public JSON evidence packs keyed by repository ID."""
     evidence: dict[str, object] = {}
     if not root.exists():
         return evidence
