@@ -1,0 +1,20 @@
+schema_version: 1
+record_fields:
+  - id
+  - target_name
+  - disposition
+  - previous_state
+  - state
+  - intended_visibility
+  - required_preflight
+  - required_postflight
+  - blockers
+states:
+  - inventory
+  - frozen
+  - preflight-passed
+  - transferred
+  - transfer-verified
+  - renamed
+  - rename-verified
+  - development-restored

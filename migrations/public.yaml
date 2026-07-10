@@ -1,0 +1,83 @@
+schema_version: 1
+records:
+  - id: vulca-sdk
+    target_name: vulca-visual-control-sdk
+    disposition: adopt
+    previous_state: null
+    state: inventory
+    intended_visibility: public
+    required_preflight: [confirm-public-source, confirm-target-name, verify-release-boundary]
+    required_postflight: [verify-public-url, verify-release-channels, restore-development]
+    blockers: []
+  - id: vulca-plugin
+    target_name: vulca-visual-agent-plugin
+    disposition: adopt
+    previous_state: null
+    state: inventory
+    intended_visibility: public
+    required_preflight: [confirm-public-source, confirm-target-name, verify-release-boundary]
+    required_postflight: [verify-public-url, verify-plugin-distribution, restore-development]
+    blockers: []
+  - id: comfyui-vulca
+    target_name: vulca-comfyui-visual-nodes
+    disposition: adopt
+    previous_state: null
+    state: inventory
+    intended_visibility: public
+    required_preflight: [confirm-public-source, confirm-target-name, verify-release-boundary]
+    required_postflight: [verify-public-url, verify-adapter-releases, restore-development]
+    blockers: []
+  - id: vulca-bench
+    target_name: vulca-cultural-visual-benchmark
+    disposition: adopt
+    previous_state: null
+    state: inventory
+    intended_visibility: public
+    required_preflight: [confirm-public-source, confirm-target-name, verify-research-boundary]
+    required_postflight: [verify-public-url, verify-research-artifacts, restore-development]
+    blockers: []
+  - id: vulca-framework
+    target_name: vulca-cultural-evaluation-framework
+    disposition: adopt
+    previous_state: null
+    state: inventory
+    intended_visibility: public
+    required_preflight: [confirm-public-source, confirm-target-name, verify-research-boundary]
+    required_postflight: [verify-public-url, verify-research-artifacts, restore-development]
+    blockers: []
+  - id: emnlp2025-vulca
+    target_name: null
+    disposition: blocked
+    previous_state: null
+    state: inventory
+    intended_visibility: public
+    required_preflight: [confirm-public-source, approve-descriptive-target, verify-historical-boundary]
+    required_postflight: [verify-public-url, verify-traceability, restore-development]
+    blockers: [target-name-not-approved]
+  - id: vulca-emnlp2025-site
+    target_name: null
+    disposition: blocked
+    previous_state: null
+    state: inventory
+    intended_visibility: public
+    required_preflight: [confirm-public-source, approve-descriptive-target, verify-historical-boundary]
+    required_postflight: [verify-public-url, verify-site-traceability, restore-development]
+    blockers: [target-name-not-approved]
+  - id: vulca-exhibition
+    target_name: null
+    disposition: blocked
+    previous_state: null
+    state: inventory
+    intended_visibility: public
+    required_preflight: [confirm-public-source, approve-descriptive-target, verify-no-active-release]
+    required_postflight: [verify-public-url, verify-traceability, restore-development]
+    blockers: [target-name-not-approved]
+  - id: claude-skills-vulca
+    target_name: null
+    disposition: archive
+    previous_state: null
+    state: inventory
+    intended_visibility: public
+    required_preflight: [confirm-public-source, confirm-archive-disposition, verify-no-active-release]
+    required_postflight: [verify-public-url, verify-archive-traceability, restore-development]
+    blockers: [target-name-not-approved]
