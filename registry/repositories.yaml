@@ -8,7 +8,7 @@ policy: >-
 repositories:
   - id: vulca-sdk
     current_owner: vulca-org
-    current_name: vulca
+    current_name: vulca-visual-control-sdk
     target_name: vulca-visual-control-sdk
     visibility: public
     lane: visual-systems
@@ -21,7 +21,7 @@ repositories:
     version_source: pyproject.toml
     release_channels: [PyPI, GitHub tags, GitHub Releases]
     release_boundary: Maintainer-approved public SDK releases from the declared version source.
-    public_url: https://github.com/vulca-org/vulca
+    public_url: https://github.com/vulca-org/vulca-visual-control-sdk
     notes: Canonical public product and developer surface.
   - id: vulca-plugin
     current_owner: vulca-org

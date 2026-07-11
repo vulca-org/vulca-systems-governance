@@ -118,7 +118,7 @@ Only public repositories appear as records. This registry describes stable autho
 
 ## vulca-sdk
 
-- Current: [vulca-org/vulca](https://github.com/vulca-org/vulca)
+- Current: [vulca-org/vulca-visual-control-sdk](https://github.com/vulca-org/vulca-visual-control-sdk)
 - Target: vulca-visual-control-sdk
 - Lane: visual-systems
 - Lifecycle: active
