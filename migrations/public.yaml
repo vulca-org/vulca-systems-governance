@@ -17,7 +17,10 @@ records:
     intended_visibility: public
     required_preflight: [confirm-public-source, confirm-target-name, verify-release-boundary]
     required_postflight: [verify-public-url, verify-plugin-distribution, restore-development]
-    blockers: []
+    blockers:
+      - public-references-use-legacy-plugin-slug
+      - legacy-platform-can-overwrite-canonical-plugin
+      - plugin-ci-missing
   - id: comfyui-vulca
     target_name: vulca-comfyui-visual-nodes
     disposition: adopt
