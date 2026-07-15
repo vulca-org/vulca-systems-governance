@@ -104,7 +104,7 @@ Only public repositories appear as records. This registry describes stable autho
 
 ## vulca-plugin
 
-- Current: [vulca-org/vulca-plugin](https://github.com/vulca-org/vulca-plugin)
+- Current: [vulca-org/vulca-visual-agent-plugin](https://github.com/vulca-org/vulca-visual-agent-plugin)
 - Target: vulca-visual-agent-plugin
 - Lane: visual-systems
 - Lifecycle: active
