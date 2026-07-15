@@ -88,8 +88,10 @@ def validate_migrations(data: dict[str, object], registry: dict[str, object]) ->
             raise GovernanceError("migration visibility must be public or private")
         _string_list(record.get("required_preflight"), "required preflight")
         _string_list(record.get("required_postflight"), "required postflight")
-        _string_list(record.get("blockers"), "blockers", allow_empty=True)
-        _validate_transition(record.get("previous_state"), record.get("state"))
+        blockers = _string_list(record.get("blockers"), "blockers", allow_empty=True)
+        state = record.get("state")
+        _validate_transition(record.get("previous_state"), state)
+        _validate_state_alignment(state, blockers, authority)
 
 
 def _validate_transition(previous: object, current: object) -> None:
@@ -103,6 +105,22 @@ def _validate_transition(previous: object, current: object) -> None:
         raise GovernanceError("migration previous_state is not approved")
     if STATES.index(current) != STATES.index(previous) + 1:
         raise GovernanceError("migration transition must be adjacent")
+
+
+def _validate_state_alignment(
+    state: object,
+    blockers: list[str],
+    authority: Mapping[object, object],
+) -> None:
+    state_index = STATES.index(state)
+    if state_index >= STATES.index("preflight-passed") and blockers:
+        raise GovernanceError("preflight-passed or later migration state cannot retain blockers")
+    if state_index >= STATES.index("transferred") and authority.get("current_owner") != "vulca-org":
+        raise GovernanceError("transferred or later migration state requires the Vulca organization owner")
+    if state_index >= STATES.index("renamed"):
+        target_name = authority.get("target_name")
+        if not isinstance(target_name, str) or authority.get("current_name") != target_name:
+            raise GovernanceError("renamed or later migration state requires the current name to match target")
 
 
 def _reject_forbidden_fields(value: object) -> None:

@@ -62,6 +62,14 @@ def test_registry_rejects_duplicate_ids_and_urls() -> None:
         validate_registry(data, load_policy_set())
 
 
+def test_registry_url_must_match_current_owner_and_name() -> None:
+    data = _registry()
+    data["repositories"][0]["public_url"] = "https://github.com/vulca-org/other"  # type: ignore[index]
+
+    with pytest.raises(GovernanceError, match="current owner and name"):
+        validate_registry(data, load_policy_set())
+
+
 @pytest.mark.parametrize(
     ("field", "value"),
     [

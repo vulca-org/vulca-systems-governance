@@ -1,6 +1,6 @@
 # Vulca Systems Repository Registry
 
-Verified on: 2026-07-10
+Verified on: 2026-07-15
 
 Only public repositories appear as records. This registry describes stable authority, target naming, lifecycle, synchronization, and release boundaries; dynamic branch, commit, worktree, and local availability state remains outside the public artifact.
 

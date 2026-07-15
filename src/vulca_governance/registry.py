@@ -111,6 +111,9 @@ def validate_registry(
         if not re.fullmatch(r"https://github\.com/[^/\s]+/[^/\s]+", public_url):
             raise GovernanceError("public_url must be a GitHub repository URL")
         normalized_url = public_url.casefold().rstrip("/")
+        expected_url = f"https://github.com/{record['current_owner']}/{record['current_name']}".casefold()
+        if normalized_url != expected_url:
+            raise GovernanceError("public_url must match the current owner and name")
         if normalized_url in seen_urls:
             raise GovernanceError("duplicate registry public URL")
         seen_urls.add(normalized_url)

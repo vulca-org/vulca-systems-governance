@@ -1,5 +1,5 @@
 schema_version: 1
-verified_on: "2026-07-10"
+verified_on: "2026-07-15"
 policy: >-
   Only public repositories appear as records. This registry describes stable
   authority, target naming, lifecycle, synchronization, and release boundaries;
