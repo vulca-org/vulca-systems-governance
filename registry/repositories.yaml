@@ -25,7 +25,7 @@ repositories:
     notes: Canonical public product and developer surface.
   - id: vulca-plugin
     current_owner: vulca-org
-    current_name: vulca-plugin
+    current_name: vulca-visual-agent-plugin
     target_name: vulca-visual-agent-plugin
     visibility: public
     lane: visual-systems
@@ -38,7 +38,7 @@ repositories:
     version_source: Plugin manifest
     release_channels: [GitHub repository]
     release_boundary: Maintainer-approved plugin packaging from the declared manifest.
-    public_url: https://github.com/vulca-org/vulca-plugin
+    public_url: https://github.com/vulca-org/vulca-visual-agent-plugin
     notes: Canonical plugin packaging surface; it does not replace the SDK source.
   - id: comfyui-vulca
     current_owner: vulca-org
