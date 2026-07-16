@@ -30,8 +30,8 @@ records:
   - id: vulca-bench
     target_name: vulca-cultural-visual-benchmark
     disposition: adopt
-    previous_state: null
-    state: inventory
+    previous_state: rename-verified
+    state: development-restored
     intended_visibility: public
     required_preflight: [confirm-public-source, confirm-target-name, verify-research-boundary]
     required_postflight: [verify-public-url, verify-research-artifacts, restore-development]

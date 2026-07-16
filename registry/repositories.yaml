@@ -1,5 +1,5 @@
 schema_version: 1
-verified_on: "2026-07-15"
+verified_on: "2026-07-16"
 policy: >-
   Only public repositories appear as records. This registry describes stable
   authority, target naming, lifecycle, synchronization, and release boundaries;
@@ -58,20 +58,29 @@ repositories:
     public_url: https://github.com/vulca-org/vulca-comfyui-visual-nodes
     notes: Canonical ComfyUI integration surface.
   - id: vulca-bench
-    current_owner: yha9806
-    current_name: VULCA-Bench
+    current_owner: vulca-org
+    current_name: vulca-cultural-visual-benchmark
     target_name: vulca-cultural-visual-benchmark
     visibility: public
     lane: research-evaluation
     lifecycle: maintained
     disposition: adopt
-    canonical_for: [Public VULCA-Bench research artifacts]
-    sync_direction: none
-    version_source: Dataset and repository revisions
+    canonical_for: [Public VULCA-Bench metadata releases and evaluation tooling]
+    sync_direction: >-
+      Controlled research sources export maintainer-approved metadata releases
+      into this canonical organization repository; Hugging Face remains a
+      separate distribution surface that requires explicit reconciliation.
+    version_source: release/v2.1/manifest.json and repository revisions
     release_channels: [GitHub repository]
-    release_boundary: Research maintainers govern public dataset and repository revisions.
-    public_url: https://github.com/yha9806/VULCA-Bench
-    notes: Supporting benchmark research; it is not the SDK release authority.
+    release_boundary: >-
+      Maintainer-approved metadata-first benchmark releases validated by the
+      release manifest and CI; third-party artwork images remain source-specific
+      and are not redistributed.
+    public_url: https://github.com/vulca-org/vulca-cultural-visual-benchmark
+    notes: >-
+      Canonical public v2.1 repository; https://github.com/yha9806/VULCA-Bench
+      remains the historical personal-owner source and is not the active release
+      authority.
   - id: vulca-framework
     current_owner: yha9806
     current_name: VULCA-Framework
