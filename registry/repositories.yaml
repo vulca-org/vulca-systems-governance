@@ -57,6 +57,29 @@ repositories:
     release_boundary: Maintainer-approved adapter releases through public Git channels.
     public_url: https://github.com/vulca-org/vulca-comfyui-visual-nodes
     notes: Canonical ComfyUI integration surface.
+  - id: vulca-nemo-curator-adapter
+    current_owner: vulca-org
+    current_name: vulca-nemo-curator-adapter
+    target_name: vulca-nemo-curator-adapter
+    visibility: public
+    lane: integrations-internal-archive
+    lifecycle: active
+    disposition: adopt
+    canonical_for: [Public NeMo Curator ImageWriter Parquet adapter and maintainer handoff]
+    sync_direction: >-
+      A controlled development source exports an exact maintainer-approved
+      allowlisted candidate into this public distribution; synchronization is
+      one way and public-only edits do not flow back.
+    version_source: package_manifest.json and repository revisions
+    release_channels: [GitHub repository]
+    release_boundary: >-
+      Human-confirmed allowlisted source candidates whose provenance, tracked
+      file set, content digest, focused tests, and package builds pass CI; the
+      complete development source and local run outputs remain excluded.
+    public_url: https://github.com/vulca-org/vulca-nemo-curator-adapter
+    notes: >-
+      Canonical public distribution for the selected source-pinned NeMo Curator
+      boundary; it is not the complete Curator adapter development authority.
   - id: vulca-bench
     current_owner: vulca-org
     current_name: vulca-cultural-visual-benchmark
