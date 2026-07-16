@@ -82,20 +82,26 @@ repositories:
       remains the historical personal-owner source and is not the active release
       authority.
   - id: vulca-framework
-    current_owner: yha9806
-    current_name: VULCA-Framework
+    current_owner: vulca-org
+    current_name: vulca-cultural-evaluation-framework
     target_name: vulca-cultural-evaluation-framework
     visibility: public
     lane: research-evaluation
     lifecycle: maintained
     disposition: adopt
-    canonical_for: [Public VULCA framework research artifacts]
-    sync_direction: none
-    version_source: Repository revisions
+    canonical_for: [Public VULCA cultural evaluation framework research prototype]
+    sync_direction: >-
+      Consumes canonical VULCA-Bench constructs and public release inputs;
+      framework experiments do not redefine benchmark schemas or release scores.
+    version_source: pyproject.toml and repository revisions
     release_channels: [GitHub repository]
-    release_boundary: Research maintainers govern public repository revisions.
-    public_url: https://github.com/yha9806/VULCA-Framework
-    notes: Supporting research framework; it is not the SDK release authority.
+    release_boundary: >-
+      Maintainer-approved public prototype revisions validated by repository CI;
+      exact paper reproduction requires separately governed calibration artifacts.
+    public_url: https://github.com/vulca-org/vulca-cultural-evaluation-framework
+    notes: >-
+      Canonical organization repository for the uncalibrated public research
+      prototype; it is not the SDK or benchmark release authority.
   - id: emnlp2025-vulca
     current_owner: yha9806
     current_name: EMNLP2025-VULCA

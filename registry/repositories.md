@@ -90,17 +90,17 @@ Only public repositories appear as records. This registry describes stable autho
 
 ## vulca-framework
 
-- Current: [yha9806/VULCA-Framework](https://github.com/yha9806/VULCA-Framework)
+- Current: [vulca-org/vulca-cultural-evaluation-framework](https://github.com/vulca-org/vulca-cultural-evaluation-framework)
 - Target: vulca-cultural-evaluation-framework
 - Lane: research-evaluation
 - Lifecycle: maintained
 - Disposition: adopt
-- Canonical for: Public VULCA framework research artifacts
-- Version source: Repository revisions
+- Canonical for: Public VULCA cultural evaluation framework research prototype
+- Version source: pyproject.toml and repository revisions
 - Release channels: GitHub repository
-- Release boundary: Research maintainers govern public repository revisions.
-- Synchronization: none
-- Notes: Supporting research framework; it is not the SDK release authority.
+- Release boundary: Maintainer-approved public prototype revisions validated by repository CI; exact paper reproduction requires separately governed calibration artifacts.
+- Synchronization: Consumes canonical VULCA-Bench constructs and public release inputs; framework experiments do not redefine benchmark schemas or release scores.
+- Notes: Canonical organization repository for the uncalibrated public research prototype; it is not the SDK or benchmark release authority.
 
 ## vulca-plugin
 

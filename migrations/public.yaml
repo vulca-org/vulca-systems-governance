@@ -39,8 +39,8 @@ records:
   - id: vulca-framework
     target_name: vulca-cultural-evaluation-framework
     disposition: adopt
-    previous_state: null
-    state: inventory
+    previous_state: rename-verified
+    state: development-restored
     intended_visibility: public
     required_preflight: [confirm-public-source, confirm-target-name, verify-research-boundary]
     required_postflight: [verify-public-url, verify-research-artifacts, restore-development]
