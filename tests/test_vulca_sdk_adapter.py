@@ -32,6 +32,7 @@ def test_adapter_reads_committed_head_without_changing_status(tmp_path: Path) ->
     pack = collect_vulca_sdk_evidence(root.resolve(), GitObjectReader(SubprocessRunner()))
 
     assert pack["source_commit"] == _git(root, "rev-parse", "HEAD")
+    assert pack["source_identity"] == "vulca-org/vulca-visual-control-sdk"
     assert len(pack["source_commit"]) == 40
     assert pack["input_paths"] == ["pyproject.toml", "src/vulca/mcp_server.py"]
     assert pack["derived"] == {"mcp_tool_count": 2, "version": "1.2.3"}
