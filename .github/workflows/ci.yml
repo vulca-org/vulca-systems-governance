@@ -27,4 +27,5 @@ jobs:
       - run: vulca-governance evidence verify
       - run: vulca-governance naming check
       - run: vulca-governance migration check
+      - run: vulca-governance security check
       - run: vulca-governance audit

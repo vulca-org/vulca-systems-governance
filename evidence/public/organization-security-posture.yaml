@@ -1,0 +1,184 @@
+schema_version: 1
+organization: vulca-org
+verified_on: "2026-07-16"
+scope: vulca-org-public-repositories
+observation_mode: source-controlled-live-verification-snapshot
+organization_defaults:
+  dependency_graph: enabled
+  dependabot_alerts: enabled
+  dependabot_security_updates: disabled
+  secret_scanning: enabled
+  secret_scanning_push_protection: enabled
+repositories:
+  - name: .github
+    default_branch: master
+    secret_scanning: enabled
+    secret_scanning_push_protection: enabled
+    dependabot_alerts: enabled
+    dependabot_security_updates: disabled
+    code_scanning_default_setup: configured
+    code_scanning_required_check: observe-first
+    initial_codeql_scan: success
+    protection_mode: ruleset
+    required_status_checks: [validate (3.10), validate (3.11), validate (3.12)]
+    strict_repository_ci: true
+    pull_request_required: true
+    required_approving_review_count: 0
+    required_conversation_resolution: true
+    administrator_bypass: true
+    force_pushes: blocked
+    branch_deletions: blocked
+    open_secret_scanning_alerts: 0
+    open_code_scanning_alerts: 0
+    open_dependabot_alerts: 0
+  - name: vulca-comfyui-visual-nodes
+    default_branch: main
+    secret_scanning: enabled
+    secret_scanning_push_protection: enabled
+    dependabot_alerts: enabled
+    dependabot_security_updates: disabled
+    code_scanning_default_setup: configured
+    code_scanning_required_check: observe-first
+    initial_codeql_scan: success
+    protection_mode: branch-protection
+    required_status_checks:
+      - minimum SDK compatibility
+      - test (3.10)
+      - test (3.11)
+      - test (3.12)
+    strict_repository_ci: true
+    pull_request_required: true
+    required_approving_review_count: 0
+    required_conversation_resolution: true
+    administrator_bypass: true
+    force_pushes: blocked
+    branch_deletions: blocked
+    open_secret_scanning_alerts: 0
+    open_code_scanning_alerts: 0
+    open_dependabot_alerts: 0
+  - name: vulca-cultural-evaluation-framework
+    default_branch: main
+    secret_scanning: enabled
+    secret_scanning_push_protection: enabled
+    dependabot_alerts: enabled
+    dependabot_security_updates: disabled
+    code_scanning_default_setup: configured
+    code_scanning_required_check: observe-first
+    initial_codeql_scan: success
+    protection_mode: branch-protection
+    required_status_checks: [public-api (3.9), public-api (3.12)]
+    strict_repository_ci: true
+    pull_request_required: true
+    required_approving_review_count: 0
+    required_conversation_resolution: true
+    administrator_bypass: true
+    force_pushes: blocked
+    branch_deletions: blocked
+    open_secret_scanning_alerts: 0
+    open_code_scanning_alerts: 0
+    open_dependabot_alerts: 0
+  - name: vulca-cultural-visual-benchmark
+    default_branch: main
+    secret_scanning: enabled
+    secret_scanning_push_protection: enabled
+    dependabot_alerts: enabled
+    dependabot_security_updates: disabled
+    code_scanning_default_setup: configured
+    code_scanning_required_check: observe-first
+    initial_codeql_scan: success
+    protection_mode: branch-protection
+    required_status_checks: [validate (3.10), validate (3.11), validate (3.12)]
+    strict_repository_ci: true
+    pull_request_required: true
+    required_approving_review_count: 0
+    required_conversation_resolution: true
+    administrator_bypass: true
+    force_pushes: blocked
+    branch_deletions: blocked
+    open_secret_scanning_alerts: 0
+    open_code_scanning_alerts: 0
+    open_dependabot_alerts: 0
+  - name: vulca-nemo-curator-adapter
+    default_branch: main
+    secret_scanning: enabled
+    secret_scanning_push_protection: enabled
+    dependabot_alerts: enabled
+    dependabot_security_updates: disabled
+    code_scanning_default_setup: configured
+    code_scanning_required_check: observe-first
+    initial_codeql_scan: success
+    protection_mode: branch-protection
+    required_status_checks: [verify-and-test]
+    strict_repository_ci: true
+    pull_request_required: true
+    required_approving_review_count: 0
+    required_conversation_resolution: true
+    administrator_bypass: true
+    force_pushes: blocked
+    branch_deletions: blocked
+    open_secret_scanning_alerts: 0
+    open_code_scanning_alerts: 0
+    open_dependabot_alerts: 0
+  - name: vulca-systems-governance
+    default_branch: master
+    secret_scanning: enabled
+    secret_scanning_push_protection: enabled
+    dependabot_alerts: enabled
+    dependabot_security_updates: disabled
+    code_scanning_default_setup: configured
+    code_scanning_required_check: observe-first
+    initial_codeql_scan: success
+    protection_mode: ruleset
+    required_status_checks: [validate (3.10), validate (3.11), validate (3.12)]
+    strict_repository_ci: true
+    pull_request_required: true
+    required_approving_review_count: 0
+    required_conversation_resolution: true
+    administrator_bypass: true
+    force_pushes: blocked
+    branch_deletions: blocked
+    open_secret_scanning_alerts: 0
+    open_code_scanning_alerts: 0
+    open_dependabot_alerts: 0
+  - name: vulca-visual-agent-plugin
+    default_branch: main
+    secret_scanning: enabled
+    secret_scanning_push_protection: enabled
+    dependabot_alerts: enabled
+    dependabot_security_updates: disabled
+    code_scanning_default_setup: configured
+    code_scanning_required_check: observe-first
+    initial_codeql_scan: success
+    protection_mode: branch-protection
+    required_status_checks: [validate]
+    strict_repository_ci: true
+    pull_request_required: true
+    required_approving_review_count: 0
+    required_conversation_resolution: true
+    administrator_bypass: true
+    force_pushes: blocked
+    branch_deletions: blocked
+    open_secret_scanning_alerts: 0
+    open_code_scanning_alerts: 0
+    open_dependabot_alerts: 0
+  - name: vulca-visual-control-sdk
+    default_branch: master
+    secret_scanning: enabled
+    secret_scanning_push_protection: enabled
+    dependabot_alerts: enabled
+    dependabot_security_updates: disabled
+    code_scanning_default_setup: configured
+    code_scanning_required_check: observe-first
+    initial_codeql_scan: success
+    protection_mode: ruleset
+    required_status_checks: [test (3.11), test (3.12)]
+    strict_repository_ci: true
+    pull_request_required: true
+    required_approving_review_count: 0
+    required_conversation_resolution: true
+    administrator_bypass: false
+    force_pushes: blocked
+    branch_deletions: blocked
+    open_secret_scanning_alerts: 0
+    open_code_scanning_alerts: 0
+    open_dependabot_alerts: 0

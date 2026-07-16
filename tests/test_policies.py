@@ -56,6 +56,12 @@ def test_policy_rules_are_non_empty() -> None:
     policies = load_policy_set()
     assert policies.admission["required_checks"]
     assert policies.release_boundaries["required_fields"]
+    assert policies.security_baseline["required_repositories"]
+    assert policies.security_baseline["finding_thresholds"] == {
+        "open_secret_scanning_alerts": 0,
+        "open_code_scanning_alerts": 0,
+        "open_dependabot_alerts": 0,
+    }
 
 
 def test_missing_policy_document_fails_without_exposing_values(tmp_path: Path) -> None:

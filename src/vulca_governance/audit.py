@@ -11,8 +11,10 @@ def build_audit(
     evidence: Mapping[str, object],
     migrations: dict[str, object],
     policies: PolicySet,
+    *,
+    security_posture: Mapping[str, object] | None = None,
 ) -> dict[str, object]:
-    """Build a public report containing stable categories and repository IDs."""
+    """Build a public report containing stable categories and repository identifiers."""
     del policies
     repositories = registry.get("repositories", [])
     repository_ids = sorted(
@@ -36,6 +38,17 @@ def build_audit(
         "evidence": {"status": evidence_status, "repository_ids": present_evidence},
         "migrations": {"status": migration_status, "repository_ids": migration_ids},
     }
+    if security_posture is not None:
+        security_repositories = security_posture.get("repositories", [])
+        security_names = sorted(
+            str(row["name"])
+            for row in security_repositories
+            if isinstance(row, Mapping) and isinstance(row.get("name"), str)
+        )
+        categories["security"] = {
+            "status": "pass",
+            "repository_names": security_names,
+        }
     overall = "pass" if all(item["status"] == "pass" for item in categories.values()) else "fail"
     return {
         "schema_version": 1,
@@ -57,7 +70,7 @@ def render_audit_markdown(report: dict[str, object]) -> str:
             item = categories[name]
             if not isinstance(item, Mapping):
                 continue
-            identifiers = item.get("repository_ids", [])
-            rendered_ids = ", ".join(str(value) for value in identifiers) if identifiers else "none"
-            lines.append(f"- {name}: {item.get('status')} ({rendered_ids})")
+            identifiers = item.get("repository_ids", item.get("repository_names", []))
+            rendered = ", ".join(str(value) for value in identifiers) if identifiers else "none"
+            lines.append(f"- {name}: {item.get('status')} ({rendered})")
     return "\n".join(lines).rstrip() + "\n"

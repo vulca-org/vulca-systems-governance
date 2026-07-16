@@ -1,0 +1,35 @@
+schema_version: 1
+scope: vulca-org-public-repositories
+observation_mode: source-controlled-live-verification-snapshot
+required_repositories:
+  - .github
+  - vulca-comfyui-visual-nodes
+  - vulca-cultural-evaluation-framework
+  - vulca-cultural-visual-benchmark
+  - vulca-nemo-curator-adapter
+  - vulca-systems-governance
+  - vulca-visual-agent-plugin
+  - vulca-visual-control-sdk
+organization_defaults:
+  dependency_graph: enabled
+  dependabot_alerts: enabled
+  dependabot_security_updates: disabled
+  secret_scanning: enabled
+  secret_scanning_push_protection: enabled
+repository_controls:
+  code_scanning_default_setup: configured
+  code_scanning_required_check: observe-first
+  pull_request_required: true
+  required_approving_review_count: 0
+  required_conversation_resolution: true
+  strict_repository_ci: true
+  administrator_bypass: permitted
+  force_pushes: blocked
+  branch_deletions: blocked
+finding_thresholds:
+  open_secret_scanning_alerts: 0
+  open_code_scanning_alerts: 0
+  open_dependabot_alerts: 0
+exceptions:
+  - Existing stronger branch rules remain valid.
+  - Archived repositories may replace active controls with immutable archive controls.
