@@ -26,7 +26,10 @@ records:
     intended_visibility: public
     required_preflight: [confirm-public-source, confirm-target-name, verify-release-boundary]
     required_postflight: [verify-public-url, verify-adapter-releases, restore-development]
-    blockers: []
+    blockers:
+      - public-references-use-legacy-comfyui-slug
+      - comfyui-ci-missing
+      - comfyui-release-version-coupled-to-sdk
   - id: vulca-bench
     target_name: vulca-cultural-visual-benchmark
     disposition: adopt
