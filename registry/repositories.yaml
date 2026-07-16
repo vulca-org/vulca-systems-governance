@@ -42,7 +42,7 @@ repositories:
     notes: Canonical plugin packaging surface; it does not replace the SDK source.
   - id: comfyui-vulca
     current_owner: vulca-org
-    current_name: comfyui-vulca
+    current_name: vulca-comfyui-visual-nodes
     target_name: vulca-comfyui-visual-nodes
     visibility: public
     lane: integrations-internal-archive
@@ -55,7 +55,7 @@ repositories:
     version_source: Package manifest and Git tags
     release_channels: [GitHub tags, GitHub Releases]
     release_boundary: Maintainer-approved adapter releases through public Git channels.
-    public_url: https://github.com/vulca-org/comfyui-vulca
+    public_url: https://github.com/vulca-org/vulca-comfyui-visual-nodes
     notes: Canonical ComfyUI integration surface.
   - id: vulca-bench
     current_owner: yha9806
