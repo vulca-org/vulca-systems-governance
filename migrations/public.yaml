@@ -21,13 +21,12 @@ records:
   - id: comfyui-vulca
     target_name: vulca-comfyui-visual-nodes
     disposition: adopt
-    previous_state: inventory
-    state: frozen
+    previous_state: frozen
+    state: preflight-passed
     intended_visibility: public
     required_preflight: [confirm-public-source, confirm-target-name, verify-release-boundary]
     required_postflight: [verify-public-url, verify-adapter-releases, restore-development]
-    blockers:
-      - public-references-use-legacy-comfyui-slug
+    blockers: []
   - id: vulca-bench
     target_name: vulca-cultural-visual-benchmark
     disposition: adopt
