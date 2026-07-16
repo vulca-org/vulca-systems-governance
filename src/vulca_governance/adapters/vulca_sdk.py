@@ -37,7 +37,7 @@ def collect_vulca_sdk_evidence(root: Path, reader: GitObjectReader) -> dict[str,
     payload: dict[str, object] = {
         "schema_version": 1,
         "repository_id": "vulca-sdk",
-        "source_identity": "vulca-org/vulca",
+        "source_identity": "vulca-org/vulca-visual-control-sdk",
         "source_commit": source_commit,
         "collector": {"name": "vulca-sdk", "schema_version": 1},
         "input_paths": list(INPUT_PATHS),

@@ -12,12 +12,12 @@
     "src/vulca/mcp_server.py"
   ],
   "input_sha256": {
-    "pyproject.toml": "ec83acaf60e0512d51949bd65a723898f264c98f483dc1e02b1eccef56a9b5ab",
+    "pyproject.toml": "b531baf3e30641a9c45ecbf4389756afaf4947c648e7c58031faad3fb9ee94a9",
     "src/vulca/mcp_server.py": "6da1d157d8e0ad2bdd85de1461fc99316b0ebff3340c64616d7cc415aa360a23"
   },
-  "payload_sha256": "03b6a00e30838542b450ad80d488d6c1587b035a357e93d41a6fcc50ca170f62",
+  "payload_sha256": "d0c93ad5d7c886bb6812fed7063877138ab7cbc91f2eb2051f14f66c4e810c7e",
   "repository_id": "vulca-sdk",
   "schema_version": 1,
-  "source_commit": "d61139ef1d088e68d0fa23798f37ca04c00399bf",
-  "source_identity": "vulca-org/vulca"
+  "source_commit": "ebf7fcdb30a5299d915b6631b044feac412d636f",
+  "source_identity": "vulca-org/vulca-visual-control-sdk"
 }
