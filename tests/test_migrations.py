@@ -152,6 +152,30 @@ def test_committed_bench_migration_is_reconciled_to_completed_state() -> None:
     )
 
 
+def test_committed_curator_adapter_is_reconciled_to_completed_state() -> None:
+    registry = _registry()
+    migrations = load_migrations(Path("migrations/public.yaml"))
+    migration = next(
+        row
+        for row in migrations["records"]  # type: ignore[index]
+        if row["id"] == "vulca-nemo-curator-adapter"
+    )
+    authority = next(
+        row
+        for row in registry["repositories"]  # type: ignore[index]
+        if row["id"] == "vulca-nemo-curator-adapter"
+    )
+
+    assert migration["previous_state"] == "rename-verified"
+    assert migration["state"] == "development-restored"
+    assert migration["blockers"] == []
+    assert authority["current_owner"] == "vulca-org"
+    assert authority["current_name"] == migration["target_name"]
+    assert authority["public_url"] == (
+        "https://github.com/vulca-org/vulca-nemo-curator-adapter"
+    )
+
+
 def test_committed_manifest_covers_every_registry_record() -> None:
     registry = _registry()
     migrations = load_migrations(Path("migrations/public.yaml"))

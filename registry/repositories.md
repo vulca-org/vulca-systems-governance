@@ -102,6 +102,20 @@ Only public repositories appear as records. This registry describes stable autho
 - Synchronization: Consumes canonical VULCA-Bench constructs and public release inputs; framework experiments do not redefine benchmark schemas or release scores.
 - Notes: Canonical organization repository for the uncalibrated public research prototype; it is not the SDK or benchmark release authority.
 
+## vulca-nemo-curator-adapter
+
+- Current: [vulca-org/vulca-nemo-curator-adapter](https://github.com/vulca-org/vulca-nemo-curator-adapter)
+- Target: vulca-nemo-curator-adapter
+- Lane: integrations-internal-archive
+- Lifecycle: active
+- Disposition: adopt
+- Canonical for: Public NeMo Curator ImageWriter Parquet adapter and maintainer handoff
+- Version source: package_manifest.json and repository revisions
+- Release channels: GitHub repository
+- Release boundary: Human-confirmed allowlisted source candidates whose provenance, tracked file set, content digest, focused tests, and package builds pass CI; the complete development source and local run outputs remain excluded.
+- Synchronization: A controlled development source exports an exact maintainer-approved allowlisted candidate into this public distribution; synchronization is one way and public-only edits do not flow back.
+- Notes: Canonical public distribution for the selected source-pinned NeMo Curator boundary; it is not the complete Curator adapter development authority.
+
 ## vulca-plugin
 
 - Current: [vulca-org/vulca-visual-agent-plugin](https://github.com/vulca-org/vulca-visual-agent-plugin)

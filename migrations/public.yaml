@@ -27,6 +27,15 @@ records:
     required_preflight: [confirm-public-source, confirm-target-name, verify-release-boundary]
     required_postflight: [verify-public-url, verify-adapter-releases, restore-development]
     blockers: []
+  - id: vulca-nemo-curator-adapter
+    target_name: vulca-nemo-curator-adapter
+    disposition: adopt
+    previous_state: rename-verified
+    state: development-restored
+    intended_visibility: public
+    required_preflight: [confirm-public-source, confirm-target-name, verify-release-boundary]
+    required_postflight: [verify-public-url, verify-adapter-releases, restore-development]
+    blockers: []
   - id: vulca-bench
     target_name: vulca-cultural-visual-benchmark
     disposition: adopt
