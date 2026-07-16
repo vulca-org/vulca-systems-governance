@@ -28,7 +28,6 @@ records:
     required_postflight: [verify-public-url, verify-adapter-releases, restore-development]
     blockers:
       - public-references-use-legacy-comfyui-slug
-      - comfyui-ci-missing
       - comfyui-release-version-coupled-to-sdk
   - id: vulca-bench
     target_name: vulca-cultural-visual-benchmark
