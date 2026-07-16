@@ -3,9 +3,10 @@ from pathlib import Path
 from vulca_governance.cli import main
 
 
-def test_cli_exposes_policy_and_migration_checks() -> None:
+def test_cli_exposes_policy_migration_and_security_checks() -> None:
     assert main(["naming", "check"]) == 0
     assert main(["migration", "check"]) == 0
+    assert main(["security", "check"]) == 0
 
 
 def test_cli_invalid_use_returns_two() -> None:

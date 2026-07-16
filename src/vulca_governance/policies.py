@@ -12,13 +12,14 @@ from vulca_governance.schemas import load_yaml_object, require_exact_fields
 
 @dataclass(frozen=True)
 class PolicySet:
-    """The five versioned organization policy documents."""
+    """The six versioned organization policy documents."""
 
     naming: Mapping[str, Any]
     lanes: Mapping[str, Any]
     lifecycle: Mapping[str, Any]
     admission: Mapping[str, Any]
     release_boundaries: Mapping[str, Any]
+    security_baseline: Mapping[str, Any]
 
 
 def load_policy_set(root: Path = Path("policies")) -> PolicySet:
@@ -29,6 +30,7 @@ def load_policy_set(root: Path = Path("policies")) -> PolicySet:
         lifecycle=load_yaml_object(root / "lifecycle.yaml"),
         admission=load_yaml_object(root / "admission.yaml"),
         release_boundaries=load_yaml_object(root / "release-boundaries.yaml"),
+        security_baseline=load_yaml_object(root / "security-baseline.yaml"),
     )
     validate_policy_set(policies)
     return policies
@@ -66,6 +68,20 @@ def validate_policy_set(policies: PolicySet) -> None:
         {"schema_version", "required_fields", "archived_release_channels"},
         context="release-boundaries policy",
     )
+    require_exact_fields(
+        policies.security_baseline,
+        {
+            "schema_version",
+            "scope",
+            "observation_mode",
+            "required_repositories",
+            "organization_defaults",
+            "repository_controls",
+            "finding_thresholds",
+            "exceptions",
+        },
+        context="security-baseline policy",
+    )
 
     documents = (
         policies.naming,
@@ -73,6 +89,7 @@ def validate_policy_set(policies: PolicySet) -> None:
         policies.lifecycle,
         policies.admission,
         policies.release_boundaries,
+        policies.security_baseline,
     )
     if any(document.get("schema_version") != 1 for document in documents):
         raise GovernanceError("policy schema_version must be 1")
@@ -111,6 +128,52 @@ def validate_policy_set(policies: PolicySet) -> None:
     _unique_string_list(policies.naming.get("exceptions"), "naming exceptions")
     _unique_string_list(policies.naming.get("approved_surfaces"), "approved surfaces")
     _unique_string_list(policies.naming.get("ambiguous_standalone"), "ambiguous names")
+
+    _validate_security_baseline(policies.security_baseline)
+
+
+def _validate_security_baseline(policy: Mapping[str, Any]) -> None:
+    for field in ("scope", "observation_mode"):
+        value = policy.get(field)
+        if not isinstance(value, str) or not value:
+            raise GovernanceError(f"security baseline {field} must be a non-empty string")
+    _unique_string_list(policy.get("required_repositories"), "required repositories")
+    _unique_string_list(policy.get("exceptions"), "security baseline exceptions")
+
+    organization_defaults = policy.get("organization_defaults")
+    expected_defaults = {
+        "dependency_graph": "enabled",
+        "dependabot_alerts": "enabled",
+        "dependabot_security_updates": "disabled",
+        "secret_scanning": "enabled",
+        "secret_scanning_push_protection": "enabled",
+    }
+    if organization_defaults != expected_defaults:
+        raise GovernanceError("security baseline organization defaults are not approved")
+
+    repository_controls = policy.get("repository_controls")
+    expected_controls = {
+        "code_scanning_default_setup": "configured",
+        "code_scanning_required_check": "observe-first",
+        "pull_request_required": True,
+        "required_approving_review_count": 0,
+        "required_conversation_resolution": True,
+        "strict_repository_ci": True,
+        "administrator_bypass": "permitted",
+        "force_pushes": "blocked",
+        "branch_deletions": "blocked",
+    }
+    if repository_controls != expected_controls:
+        raise GovernanceError("security baseline repository controls are not approved")
+
+    thresholds = policy.get("finding_thresholds")
+    expected_thresholds = {
+        "open_secret_scanning_alerts": 0,
+        "open_code_scanning_alerts": 0,
+        "open_dependabot_alerts": 0,
+    }
+    if thresholds != expected_thresholds:
+        raise GovernanceError("security baseline finding thresholds are not approved")
 
 
 def validate_repository_name(name: str, policies: PolicySet) -> None:

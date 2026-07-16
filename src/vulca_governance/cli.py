@@ -26,12 +26,17 @@ from vulca_governance.registry import (
     render_registry,
     validate_registry,
 )
+from vulca_governance.security_baseline import (
+    load_security_posture,
+    validate_security_posture,
+)
 
 
 REGISTRY_SOURCE = Path("registry/repositories.yaml")
 REGISTRY_OUTPUT = Path("registry/repositories.md")
 EVIDENCE_ROOT = Path("evidence/public")
 MIGRATIONS_SOURCE = Path("migrations/public.yaml")
+SECURITY_POSTURE_SOURCE = Path("evidence/public/organization-security-posture.yaml")
 
 
 class UsageError(ValueError):
@@ -63,6 +68,8 @@ def _parser() -> argparse.ArgumentParser:
     naming.add_subparsers(dest="action", required=True).add_parser("check")
     migration = commands.add_parser("migration")
     migration.add_subparsers(dest="action", required=True).add_parser("check")
+    security = commands.add_parser("security")
+    security.add_subparsers(dest="action", required=True).add_parser("check")
     commands.add_parser("audit")
 
     snapshot = commands.add_parser("snapshot")
@@ -135,6 +142,12 @@ def _dispatch(args: argparse.Namespace) -> int:
             load_migrations(MIGRATIONS_SOURCE), load_registry(REGISTRY_SOURCE)
         )
         return 0
+    if args.command == "security":
+        validate_security_posture(
+            load_security_posture(SECURITY_POSTURE_SOURCE),
+            policies.security_baseline,
+        )
+        return 0
     if args.command == "audit":
         registry = load_registry(REGISTRY_SOURCE)
         validate_registry(registry, policies)
@@ -144,7 +157,15 @@ def _dispatch(args: argparse.Namespace) -> int:
         for pack in evidence.values():
             if isinstance(pack, dict):
                 verify_evidence(pack)
-        report = build_audit(registry, evidence, migrations, policies)
+        security_posture = load_security_posture(SECURITY_POSTURE_SOURCE)
+        validate_security_posture(security_posture, policies.security_baseline)
+        report = build_audit(
+            registry,
+            evidence,
+            migrations,
+            policies,
+            security_posture=security_posture,
+        )
         if report["status"] != "pass":
             raise GovernanceError("combined governance audit failed")
         sys.stdout.write(render_audit_markdown(report))

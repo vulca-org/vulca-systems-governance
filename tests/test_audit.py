@@ -13,9 +13,20 @@ def test_audit_reports_are_deterministic_and_public() -> None:
     }
     evidence = {"vulca-sdk": {"payload_sha256": "a" * 64}}
     migrations = {"records": [{"id": "vulca-sdk"}, {"id": "b"}]}
-    report = build_audit(registry, evidence, migrations, load_policy_set())
+    security_posture = {"repositories": [{"name": ".github"}]}
+    report = build_audit(
+        registry,
+        evidence,
+        migrations,
+        load_policy_set(),
+        security_posture=security_posture,
+    )
     assert report["repository_ids"] == ["b", "vulca-sdk"]
     assert report["categories"]["evidence"] == {"status": "pass", "repository_ids": ["vulca-sdk"]}
+    assert report["categories"]["security"] == {
+        "status": "pass",
+        "repository_names": [".github"],
+    }
     assert render_audit_json(report) == render_audit_json(report)
     assert json.loads(render_audit_json(report)) == report
     assert "Governance Audit" in render_audit_markdown(report)
