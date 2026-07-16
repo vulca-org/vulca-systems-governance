@@ -20,7 +20,7 @@ Only public repositories appear as records. This registry describes stable autho
 
 ## comfyui-vulca
 
-- Current: [vulca-org/comfyui-vulca](https://github.com/vulca-org/comfyui-vulca)
+- Current: [vulca-org/vulca-comfyui-visual-nodes](https://github.com/vulca-org/vulca-comfyui-visual-nodes)
 - Target: vulca-comfyui-visual-nodes
 - Lane: integrations-internal-archive
 - Lifecycle: active
