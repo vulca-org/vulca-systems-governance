@@ -12,8 +12,8 @@ records:
   - id: vulca-plugin
     target_name: vulca-visual-agent-plugin
     disposition: adopt
-    previous_state: renamed
-    state: rename-verified
+    previous_state: rename-verified
+    state: development-restored
     intended_visibility: public
     required_preflight: [confirm-public-source, confirm-target-name, verify-release-boundary]
     required_postflight: [verify-public-url, verify-plugin-distribution, restore-development]
