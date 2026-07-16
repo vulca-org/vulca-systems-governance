@@ -21,8 +21,8 @@ records:
   - id: comfyui-vulca
     target_name: vulca-comfyui-visual-nodes
     disposition: adopt
-    previous_state: transfer-verified
-    state: renamed
+    previous_state: rename-verified
+    state: development-restored
     intended_visibility: public
     required_preflight: [confirm-public-source, confirm-target-name, verify-release-boundary]
     required_postflight: [verify-public-url, verify-adapter-releases, restore-development]
