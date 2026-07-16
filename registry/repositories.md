@@ -1,6 +1,6 @@
 # Vulca Systems Repository Registry
 
-Verified on: 2026-07-15
+Verified on: 2026-07-16
 
 Only public repositories appear as records. This registry describes stable authority, target naming, lifecycle, synchronization, and release boundaries; dynamic branch, commit, worktree, and local availability state remains outside the public artifact.
 
@@ -48,17 +48,17 @@ Only public repositories appear as records. This registry describes stable autho
 
 ## vulca-bench
 
-- Current: [yha9806/VULCA-Bench](https://github.com/yha9806/VULCA-Bench)
+- Current: [vulca-org/vulca-cultural-visual-benchmark](https://github.com/vulca-org/vulca-cultural-visual-benchmark)
 - Target: vulca-cultural-visual-benchmark
 - Lane: research-evaluation
 - Lifecycle: maintained
 - Disposition: adopt
-- Canonical for: Public VULCA-Bench research artifacts
-- Version source: Dataset and repository revisions
+- Canonical for: Public VULCA-Bench metadata releases and evaluation tooling
+- Version source: release/v2.1/manifest.json and repository revisions
 - Release channels: GitHub repository
-- Release boundary: Research maintainers govern public dataset and repository revisions.
-- Synchronization: none
-- Notes: Supporting benchmark research; it is not the SDK release authority.
+- Release boundary: Maintainer-approved metadata-first benchmark releases validated by the release manifest and CI; third-party artwork images remain source-specific and are not redistributed.
+- Synchronization: Controlled research sources export maintainer-approved metadata releases into this canonical organization repository; Hugging Face remains a separate distribution surface that requires explicit reconciliation.
+- Notes: Canonical public v2.1 repository; https://github.com/yha9806/VULCA-Bench remains the historical personal-owner source and is not the active release authority.
 
 ## vulca-emnlp2025-site
 

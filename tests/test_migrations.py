@@ -131,6 +131,27 @@ def test_committed_sdk_migration_is_reconciled_to_completed_state() -> None:
     assert sdk_authority["current_name"] == sdk_record["target_name"]
 
 
+def test_committed_bench_migration_is_reconciled_to_completed_state() -> None:
+    registry = _registry()
+    migrations = load_migrations(Path("migrations/public.yaml"))
+    bench_record = next(
+        row for row in migrations["records"] if row["id"] == "vulca-bench"  # type: ignore[index]
+    )
+    bench_authority = next(
+        row for row in registry["repositories"] if row["id"] == "vulca-bench"  # type: ignore[index]
+    )
+
+    assert bench_record["previous_state"] == "rename-verified"
+    assert bench_record["state"] == "development-restored"
+    assert bench_record["blockers"] == []
+    assert bench_authority["current_owner"] == "vulca-org"
+    assert bench_authority["current_name"] == bench_record["target_name"]
+    assert (
+        bench_authority["public_url"]
+        == "https://github.com/vulca-org/vulca-cultural-visual-benchmark"
+    )
+
+
 def test_committed_manifest_covers_every_registry_record() -> None:
     registry = _registry()
     migrations = load_migrations(Path("migrations/public.yaml"))
